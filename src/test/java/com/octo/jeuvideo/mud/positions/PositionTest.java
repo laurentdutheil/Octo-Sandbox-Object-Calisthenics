@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.octo.jeuvideo.mud.CommandeInvalideException;
+
 public class PositionTest {
 	private Position position;
 
@@ -22,7 +24,12 @@ public class PositionTest {
 	}
 
 	@Test
-	public void donneMoiLaPositionNord() {
+	public void donneMoiLaPositionNord() throws CommandeInvalideException {
 		assertEquals(position.donneMoiLaPosition(Direction.NORD), position);
+	}
+
+	@Test(expected = CommandeInvalideException.class)
+	public void donneMoiLaPositionSud() throws CommandeInvalideException {
+		position.donneMoiLaPosition(Direction.SUD);
 	}
 }

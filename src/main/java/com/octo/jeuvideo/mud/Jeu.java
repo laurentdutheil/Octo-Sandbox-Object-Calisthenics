@@ -18,9 +18,12 @@ public class Jeu {
 	}
 
 	public String deplaceNord() {
-		Position destination = position.donneMoiLaPosition(Direction.NORD);
-		if (destination == position)
-			return "Commande invalide.";
+		Position destination;
+		try {
+			destination = position.donneMoiLaPosition(Direction.NORD);
+		} catch (CommandeInvalideException e) {
+			return e.getMessage();
+		}
 
 		position = destination;
 		return new SousPorte().decrire();
