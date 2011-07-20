@@ -9,8 +9,4 @@ public class SousPorte extends Position {
         return MESSAGE_SOUS_PORTE;
     }
 
-    @Override
-    public Position donneMoiLaPositionNord() {
-        return this;
-    }
 }
